@@ -1,0 +1,4 @@
+# Ignore useless folders
+__pycache__
+.vscode
+eval.txt
