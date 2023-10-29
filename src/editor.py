@@ -14,5 +14,5 @@ if __name__ == "__main__":
 	editor = ui.set_layout()
 	editor["header"].update(ui.Header("editor.py"))
 	editor["footer"].update(ui.Footer())
-	editor["body"].update(ui.body(File("editor.py", "editor")))
+	editor["body"].update(ui.body(File("ui.py", "editor")))
 	console.print(editor)

@@ -39,16 +39,24 @@ class body:
 	def __init__(self, file: File):
 		self.file = file
 		self.content = file.read()
+		self.max_lines = console.height - (MIN_SIZE*2) - 2
+		self.display = self.content[:self.max_lines]
 
 	def __rich__(self):
 		source = Table(show_header=False, show_lines=False, show_edge=False, expand=True)
 		source.add_column(header="Row Number", width=MIN_SIZE)
 		source.add_column(header="Text", width=console.width-MIN_SIZE)
 
+		idx = 0
+
 		for idx, line in enumerate(self.content):
-			idx = Text(str(idx), style="cyan")
-			line = Text(line, style="cyan")
-			source.add_row(idx, line)
+			strdx = Text(str(idx), style="cyan")
+			line = Text(line)
+			source.add_row(strdx, line)
+
+		self.max_lines - (idx + 1)
+
+		
 
 		return Panel(source)
 
