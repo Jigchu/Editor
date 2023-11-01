@@ -37,7 +37,7 @@ class Body:
 			if key == kbd.Key.esc:
 				return False
 			if key == kbd.Key.down:
-				self.display += 1 if self.display != len(self.contents)-1 else 0
+				self.display += 1 if self.display != len(self.contents) else 0
 			if key == kbd.Key.up:
 				self.display -= 1 if self.display != 0 else 0
 		if key_t == "KeyCode":

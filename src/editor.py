@@ -21,7 +21,7 @@ def Editor(file: File):
 	editor["footer"].update(footer)
 	editor["body"].update(body)
 	
-	with Live(editor):
+	with Live(editor, refresh_per_second=100):
 		with kbd.Listener(on_press=body.on_press) as listener:
 			listener.join()
 
