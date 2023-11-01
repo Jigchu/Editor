@@ -18,6 +18,7 @@ class File:
 	
 	def write(self, contents):
 		with open(self.path, "w") as file:
-			file.writelines(contents)
+			for line in contents:
+				file.write(line + "\n")
 
 		return
