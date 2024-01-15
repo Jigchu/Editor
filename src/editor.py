@@ -8,22 +8,9 @@ from rich import print
 from util.kbd_interrupt import DelayedKeyboardInterrupt
 from util.console import console
 from util.file import *
-import ui.ui as ui
-from ui.body import *
 
-def Editor(file: File):
-	header = ui.Header(file.name)
-	body = Body(file)
-	footer = ui.Footer()
-
-	editor = ui.set_layout()
-	editor["header"].update(header)
-	editor["footer"].update(footer)
-	editor["body"].update(body)
+def Editor(file: File):	
 	
-	with Live(editor, refresh_per_second=100):
-		with kbd.Listener(on_press=body.on_press) as listener:
-			listener.join()
 
 	return 0
 
